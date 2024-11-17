@@ -43,10 +43,6 @@ a {
   font-size: 13px;
 }
 
-.index h2 {
-  margin: 13px 0;
-}
-
 th {
   padding-bottom: 5px;
 }
@@ -55,6 +51,10 @@ td {
   padding-right: 5px;
   padding-bottom: 5px;
   padding-left: 5px;
+}
+
+.new {
+  margin: 13px 0;
 }
 
 .text_title,.text_body {
@@ -72,20 +72,22 @@ td {
 }
 
 .alert {
-  width: 450px;
   margin: 0;
-  border-color: white;
+  width: 450px;
+  border: 2px solid red;
 }
 
 .error {
+  margin: 0;
   background-color: red;
   color: white;
+}
+
+.alert li {
+  display: block;
 }
 
 .field_with_errors {
   display: contents;
 }
 
-#text {
-  color: aqua;
-}
