@@ -1,31 +1,33 @@
-<h1>Editing Book</h1>
-<% if @book.errors.any? && @book.errors.count == 1 %>
-  <%= @book.errors.count %>error prohibited this book from being saved:
-  <ul>
-    <%= @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
+<div class="edit">
+  <h1>Editing Book</h1>
+  <% if @book.errors.any? && @book.errors.count == 1 %>
+    <%= @book.errors.count %>error prohibited this book from being saved:
+    <ul>
+      <%= @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    
+  <% elsif @book.errors.any? %>
+    <%= @book.errors.count %>errors prohibited this book from being saved:
+    <ul>
+      <%= @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
-<% elsif @book.errors.any? %>
-  <%= @book.errors.count %>errors prohibited this book from being saved:
-  <ul>
-    <%= @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+  <%= form_with model: @book do |f| %>
 
-<%= form_with model: @book do |f| %>
+    <p>Title</p>
+    <%= f.text_field :title, class: 'text_title' %>
+    <p>Body</p>
+    <%= f.text_area :body, class: 'text_body' %>
 
-  <p>Title</p>
-  <%= f.text_field :title %>
-  <p>Body</p>
-  <%= f.text_area :body %>
+    <%= f.submit 'Update Book', class: 'button' %>
+  <% end %>
 
-  <%= f.submit 'Update Book' %>
-<% end %>
-
-<p>
-  <%= link_to "Show", book_path(@book.id) %> | <%= link_to "Back", books_path %>
-</p>
+  <p>
+    <%= link_to "Show", book_path(@book.id) %> | <%= link_to "Back", books_path %>
+  </p>
+</div>
