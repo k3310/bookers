@@ -105,3 +105,6 @@ td {
   display: contents;
 }
 
+.notification {
+  color: green;
+}
